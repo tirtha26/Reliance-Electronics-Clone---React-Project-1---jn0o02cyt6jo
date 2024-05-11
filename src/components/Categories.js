@@ -169,28 +169,29 @@ const Categories = ({ searchTerm, selectedCategory, onClose }) => {
         <>
             {categoriesVisible && (
                 <div className=' w-full absolute top-20 bg-white pb-8'>
-                    <div>
+                    <h1 className='text-black text-2xl font-bold lg:mb-6 lg:ml-48 lg:mt-16 ml-16 mt-20'>Results for "{searchTerm || selectedCategory}"</h1>
+                    <div className='lg:mt-6  mt-10 lg:ml-36 '>
                         <label className="text-white font-semibold ">Sort By: </label>
-                        <select value={sortBy} onChange={handleSortChange} className="bg-red-600 text-white px-2 py-1 rounded-md mt-10 w-11 "style={{padding:'11px',marginTop:'10px',width:'11%'}}>
+                        {/* <select value={sortBy} onChange={handleSortChange} className="bg-red-600 text-white px-2 py-1 rounded-md lg:w-11 w-20 "style={{padding:'11px',marginTop:'10px',width:'11%'}}> */}
+                        <select value={sortBy} onChange={handleSortChange} className="bg-red-600 text-white px-2 py-1 rounded-md lg:w-36 w-28 ">
                             <option value="topRated">Top Rated</option>
                             <option value="priceLow">Price (Lowest First)</option>
                             <option value="priceHigh">Price (Highest First)</option>
                         </select>
                     </div>
-                    <h1 className='text-black text-2xl font-bold mb-6 ml-48 mt-16'>Results for "{searchTerm || selectedCategory}"</h1>
                     {loading ? (
                         <p className="text-black ml-52">Loading...</p>
                     ) : (
-                        <div className='grid grid-cols-3 gap-4 justify-center items-center bg-121212 mx-auto max-w-7xl'>
+                        <div className='grid lg:grid-cols-3 gap-4 justify-center items-center bg-121212 mx-auto lg:max-w-7xl '>
                             {products.map((product) => (
-                                <div onClick={() => handleProductClick(product._id)} className="relative flex-shrink-0 rounded-2xl bg-red-600 overflow-hidden px-2 shadow-lg mx-4 my-4 transform transition duration-300 hover:scale-105" style={{ width: "360px", height: "360px" }} key={product._id}>
+                                <div onClick={() => handleProductClick(product._id)} className="relative flex-shrink-0 rounded-2xl bg-red-600 overflow-hidden px-2 shadow-lg mx-4 my-4 transform transition duration-300 hover:scale-105 lg:w-96 lg:h-96 h-96"  key={product._id}>
                                     <div className="absolute top-0 right-0 m-2" onClick={(event) => handleFavoriteClick(event, product._id)}>
                                         {isInWishlist(product._id) ? <FaHeart className='text-blue-700 my-5 mr-2' /> : <GrFavorite className='text-white my-5 mr-2' />}
                                     </div>
                                     <div style={{ height: "200px", width: "300px", overflow: "hidden" }} >
-                                        <img src={product.displayImage} alt={product.name} className="w-full h-full object-fit: fill;" />
+                                        <img src={product.displayImage} alt={product.name} className="w-full h-full object-fit: fill; lg:mt-1 mt-10" />
                                     </div>
-                                    <div className="p-4 bg-blue-800 rounded-2xl">
+                                    <div className="p-2 bg-blue-800 rounded-2xl mt-10">
                                         <h3 className="text-lg font-semibold overflow-hidden text-white " style={{ maxHeight: "3rem" }}>{product.name}</h3>
                                         <p className="text-white text-xl my-2">₹{product.price}.00</p>
                                         <div className="flex items-center mt-2">

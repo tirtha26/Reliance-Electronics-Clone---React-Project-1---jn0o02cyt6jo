@@ -31,7 +31,7 @@ function SampleNextArrow(props) {
   return (
       <div
           className={className}
-          style={{ ...style, display: "block", background: "red", opacity: 0.3, position: "absolute", zIndex: 100 }}
+          style={{ ...style, display: "block", background: "gray",color:"black", opacity: 0.3, position: "absolute", zIndex: 100,padding: "60px 0px"}}
           onClick={onClick}
       />
   );
@@ -42,13 +42,13 @@ function SamplePrevArrow(props) {
   return (
       <div
           className={className}
-          style={{ ...style, display: "block", background: "red", opacity: 0.3 }}
+          style={{ ...style, display: "block", background: "gray", opacity: 0.3 ,padding: "60px 0px"}}
           onClick={onClick}
       />
   );
     }
   return (
-    <div style={{ width: '97%', margin: '0 auto',marginTop:'80px' }}>
+    <div  className='lg:mt-24 mt-32 w-10/12 m-auto'>
     <Slider {...settings2}>
         <NavLink to="/"> <img src="https://www.reliancedigital.in/medias/Kitchen-Fest-Banner-D-rev-1.jpg?context=bWFzdGVyfGltYWdlc3w5OTQzM3xpbWFnZS9qcGVnfGltYWdlcy9oYzQvaDBhLzEwMTI0NzAzNzYwNDE0LmpwZ3xkNTRiZTQyMGZjNmM5NDhjYzRhZWQ2ZjAyNTFmNTk0NDhhMzkzY2YyZjQ0ZDg3MzMwZTY2YTgwYTE0OThhNGNm"></img></NavLink>
 

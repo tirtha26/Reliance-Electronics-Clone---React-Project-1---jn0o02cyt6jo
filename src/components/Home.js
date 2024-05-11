@@ -107,7 +107,7 @@ const ProductList = ({ title, url, loggedIn, token }) => {
      
       <h1 className='ml-4 md:ml-52 mt-12 text-black text-2xl font-bold'>{title}</h1>
       <div className='flex justify-center items-center bg-121212 w-4/5 mt-8 m-auto overflow-hidden z-40'>
-        <GrPrevious onClick={handlePrevious} className="bold text-white disabled:opacity-50" disabled={startIndex === 0} />
+        <GrPrevious onClick={handlePrevious} className="bold text-black disabled:opacity-50" disabled={startIndex === 0} />
         <div className="overflow-hidden w-full mx-2" style={{ overflowX: 'hidden' }}>
           <div className="flex" style={{ transform: `translateX(-${startIndex * 100}%)`, transition: 'transform 1.7s ease' }}>
             {dealOfTheDay.map((product, index) => (
@@ -115,7 +115,7 @@ const ProductList = ({ title, url, loggedIn, token }) => {
             ))}
           </div>
         </div>
-        <GrNext onClick={handleNext} className="text-white disabled:opacity-50" disabled={startIndex + 4 >= dealOfTheDay.length} />
+        <GrNext onClick={handleNext} className="text-black disabled:opacity-50" disabled={startIndex + 4 >= dealOfTheDay.length} />
       </div>
       {showModal && (
         <div className="modal">

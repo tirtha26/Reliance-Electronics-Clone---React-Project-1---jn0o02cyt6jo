@@ -20,17 +20,8 @@ code {
   position: absolute;
   top: 89px;
 }
-button.btn {
-  padding: 5px 50px;
-  margin-left: 4px;
-  border-radius: 8px;
-  margin-top: 5px;
-  font-size: unset;
-  font-style: inherit;
-  background-color: blue;
-  color: aliceblue;
+
+.flex.items-center.footer_search {
+  margin-left: -40px;
 }
-button.btn:hover{
-  background-color: green;
-  
-}
+ 

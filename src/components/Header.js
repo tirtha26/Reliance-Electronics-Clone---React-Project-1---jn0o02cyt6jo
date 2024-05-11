@@ -9,7 +9,7 @@ import { IoPencil } from "react-icons/io5";
 import { useUser } from '../providers/userProvider';
 import { getWishlist } from './Api';
 import { useCartQty } from "./Addtocart";
-
+import header from "./Header.css"
 const Header = ({ onSearch, toggleMenu, menuOpen }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const { getToken, getName, onTokenHandler, onNameHandler } = useUser();
@@ -41,34 +41,36 @@ const Header = ({ onSearch, toggleMenu, menuOpen }) => {
   };
 
   const qty = useCartQty().cartQty;
-  
+   const comingSoon=()=>{
+    alert('This functionlity Coming soon....')
+   }
   return (
     <>
-      <header className='bg-red-600 fixed top-0 w-full z-50 text-white flex justify-between h-20'>
-        <div className='hidden mx-44 items-center justify-between w-full md:flex'>
-          <div className='p-3 flex items-center gap-12 w-4/5'>
+      <header className='navbar bg-red-600 fixed top-0 lg:w-full w-screen z-50 text-white flex items-center h-20 justify-between'>
+        <div className='navbar2 hidden mx-44 items-center w-full md:flex'>
+          <div className=' lms p-3 flex items-center gap-12 w-4/5'>
             <Link to="/">
-              <div className='w-32 min-w-[128px]'>
+              <div className=' logo w-32 min-w-[128px]'>
                 <img src={logo} className="w-full" alt="Logo" />
               </div>
             </Link>
-            <div className='flex items-center' onMouseEnter={toggleMenu} >
+            <div className=' menu flex items-center' onMouseEnter={toggleMenu} >
 
               {menuOpen ? (
                 <IoClose className='text-3xl' />
               ) : (
                 <IoMenuOutline className='text-3xl' />
               )}
-              <p className='text-sm'>Menu</p>
+              <p className='text-sm hide'>Menu</p>
             </div>
-            <div className={`flex items-center bg-white h-10 w-full max-w-md px-2 rounded-md `}>
+            <div className="search hide flex items-center bg-white h-10 w-full max-w-md px-2 rounded-md" >
               <input type="text" value={searchTerm} onChange={handleSearchChange} placeholder="What are you looking for ?" className='w-full bg-transparent outline-none border-none px-3 placeholder:text-sm text-black ' />
               <CiSearch className='text-black text-2xl ' />
             </div>
           </div>
 
-          <div className='flex items-center gap-9'>
-            <div className="relative">
+          <div className='llc flex items-center gap-9'>
+            <div className="location hide relative" onClick={comingSoon}>
               <div className="flex items-center gap-2">
                 <MdLocationOn className='text-xl' />
                 <p className='whitespace-nowrap text-sm'>Mumbai 400049</p>
@@ -76,7 +78,7 @@ const Header = ({ onSearch, toggleMenu, menuOpen }) => {
               </div>      
             </div>
 
-            <div className="relative inline-block text-left">
+            <div className="login relative inline-block text-left">
               <div className="inline-flex rounded-md">
                 <button
                   type="button"
@@ -137,8 +139,8 @@ const Header = ({ onSearch, toggleMenu, menuOpen }) => {
               )}
             </div>
 
-            <div className=' relative text-2xl'>
-              {/* Updated the cart icon to navigate to "/cart" */}
+            <div className=' cart relative text-2xl'>
+             
               <Link to="/cart">
                 <FaShoppingCart  />
                 
@@ -146,6 +148,10 @@ const Header = ({ onSearch, toggleMenu, menuOpen }) => {
               <p className=' absolute -top-2 -right-2 bg-blue-700 text-white text-center px-1 font-bold text-xs rounded-3xl'>{qty}</p>
             </div>
           </div>
+            <div className="mblsearch  flex items-center bg-white h-10 w-full max-w-md px-2 rounded-md" >
+              <input type="text" value={searchTerm} onChange={handleSearchChange} placeholder="What are you looking for ?" className='w-full bg-transparent outline-none border-none px-3 placeholder:text-sm text-black ' />
+              <CiSearch className='text-black text-2xl ' />
+            </div>
         </div>
       </header>
     </>

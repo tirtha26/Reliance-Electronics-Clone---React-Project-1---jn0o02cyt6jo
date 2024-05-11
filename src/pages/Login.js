@@ -41,10 +41,11 @@ function Login() {
       }
     }).then((result) => {
       onTokenHandler(result.data.token);
-      onNameHandler(result.data.data.name);
+      onNameHandler(result.data.data.user.name);
       isAuthenticated = true;
       navigate('/');
       console.log(isAuthenticated);
+      // console.log(result);
     }).catch((error) => {
       setError("Internal server error. Please try again later.");
     })
@@ -53,7 +54,7 @@ function Login() {
   return (
     <div style={{ height: "100vh" }} className='flex justify-center items-center'>
       
-      <div className="w-1/3 border rounded-3xl bg-red-700 shadow-lg p-8">
+      <div className="lg:w-1/3 md:w-4/5 w-5/6 border rounded-3xl bg-red-700 shadow-lg p-8 ">
         <h2 className="text-2xl mb-4 text-center  font-bold text-white">Login</h2>
         {getError && <div className="bg-red-500 text-white px-4 py-2 mb-4 rounded">{getError}</div>}
         <form onSubmit={onSubmitHandler} className="space-y-4">

@@ -44,8 +44,8 @@ function Register() {
     };
 
     return (
-        <div className="container  pt-32 text-black flex justify-center items-center">
-            <div className="flex bg-blue-800 justify-center border rounded-3xl w-1/3">
+        <div className="container   pt-32 text-black flex justify-center items-center">
+            <div className="flex bg-blue-800 justify-center border rounded-3xl lg:w-1/3 w-80 text-black">
                 <div className="w-full max-w-md ">
                     <h2 className="text-2xl mt-5 mb-2 text-center font-bold text-white">Register</h2>
                 

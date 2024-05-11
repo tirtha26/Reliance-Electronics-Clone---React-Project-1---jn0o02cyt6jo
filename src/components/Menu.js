@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MdNavigateNext } from "react-icons/md";
 import axios from 'axios';
-
+import menu from "./Menu.css"
 const Menu = ({ onSelectCategory }) => {
   const [categories, setCategories] = useState([]);
 
@@ -24,7 +24,7 @@ const Menu = ({ onSelectCategory }) => {
   };
 
   return (
-    <div className='bg-blue-800 m-1 ml-72 fixed z-50 text-white w-76'>
+    <div className='menu bg-blue-800 m-1 ml-72 fixed z-50 text-white w-76'>
       <h2 className='text-xl ml-2'>Categories:</h2>
       <ul>
         {categories && categories.map((category, index) => (

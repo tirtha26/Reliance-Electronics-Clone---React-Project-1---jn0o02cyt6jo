@@ -11,7 +11,7 @@ function Footer() {
                     {/* Connect with Us Section */}
                     <div className=" w-full lg:w-4/12 px-4 mb-4">
                         <h4 className="text-2xl font-semibold mb-4">CONNECT WITH US</h4>
-                        <div className="flex items-center">
+                        <div className="flex items-center footer_search">
                             <input
                                 type="email"
                                 placeholder="Enter Email ID"

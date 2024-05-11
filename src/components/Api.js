@@ -149,7 +149,7 @@ export const removeFromCart = async (productId) => {
     });
 
     // console.log(response);
-
+    window.location.reload();
     if (!response.status === 200) {
       throw new Error('Failed to remove item from cart');
     }
@@ -180,6 +180,7 @@ export const addToCart = async (productId, quantity) => { // Accept quantity par
     
     const url = `https://academics.newtonschool.co/api/v1/ecommerce/cart/${productId}`;
     const response = await fetch(url, requestOptions);
+    window.location.reload();
     console.log(await response.json())
     if (!response.ok) {
       throw new Error('Failed to add product to cart: ' + response.statusText);
