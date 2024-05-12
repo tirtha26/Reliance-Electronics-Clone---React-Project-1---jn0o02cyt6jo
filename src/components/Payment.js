@@ -92,18 +92,18 @@ const PaymentComponent = ({ productID, onSubmit }) => {
         </div>
         </div>
       
-      <div className="container mx-auto  right" style={{width:"70%",position:"absolute",top:"30%",right:"12%"}}>
+      <div className="container mx-auto  right w-[70%] absolute lg:top-[56%] top-[37%] lg:right-[12%] right-1">
       <h1 className="text-md font-bold text-center mb-8 flex justify-start border-b border-solid border-gray-300 text-blue-700 p-2" >Payment Option</h1>
       <div className="flex flex-col space-y-4">
         <div className="flex items-center space-x-4">
           <div className="relative">
           <p className="text-md font-medium">Select Bank</p>
-            <select className="border border-blue-300 rounded-md px-8 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500 w-full" style={{width:'120%'}}>
+            <select className="border border-blue-300 rounded-md px-8 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500 lg:w-[120%] w-[240px]" >
               {/* <option >Select Bank</option> */}
-              <option className="text-red-400">State Bank of India</option>
-              <option>Bank of India</option>
-              <option>Bank of Boroda</option>
-              <option>Punjab National Bank</option>
+              <option className="text-red-400 ">State Bank of India</option>
+              <option className=" " >Bank of India</option>
+              <option className=" ">Bank of Boroda</option>
+              <option className=" ">Punjab National Bank</option>
             </select>
             <div className="pera" >
               <p>Click on <b>pay</b> will take You to a secure payment gateway where make your payment <br/> Your order not be compleate without this actions </p>

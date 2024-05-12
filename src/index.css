@@ -14,12 +14,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.font-bold.bg-blue-500.text-white.p-5.mr-7 {
+/* .font-bold.bg-blue-500.text-white.p-5.mr-7 {
   width: 61%;
   margin-left: -6px;
   position: absolute;
   top: 89px;
-}
+} */
 
 .flex.items-center.footer_search {
   margin-left: -40px;

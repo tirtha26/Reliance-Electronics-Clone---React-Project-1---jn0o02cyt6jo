@@ -13,20 +13,36 @@ const Checkout = () => {
         country: '',
         zipCode: ''
     });
-
+    
     const [isAddressFormOpen, setAddressFormOpen] = useState(false);
-    const onSubmitHandler = ()=>{
-        alert("Address saved sucessfully");
-        setAddressFormOpen(false)
-       
-        navigate('/payment')
-    }
+    const onSubmitHandler = () => {
+        // Check if any required field is empty
+        const requiredFields = ['name', 'mobile', 'street', 'city', 'state', 'country', 'zipCode'];
+        const emptyFields = requiredFields.filter(field => !address[field]);
+    
+        if (emptyFields.length > 0) {
+            // Alert if any required field is empty
+            alert("Please fill in all mandatory fields");
+        } else {
+            // All required fields are filled, proceed with submission
+            alert("Address saved successfully");
+            setAddressFormOpen(false);
+            navigate('/payment');
+        }
+    };
 
+    // const onSubmitHandler = ()=>{
+    //     alert("Address saved sucessfully");
+    //     setAddressFormOpen(false)
+        
+    //     navigate('/payment')
+    // }
+    
     const jwtToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjliODc0NzQ2ZTY5MzYxNzcxOGQxNyIsImlhdCI6MTcxMTE4NDIyNywiZXhwIjoxNzQyNzIwMjI3fQ.JZeqqLswKqR1eo8bRTGuYY2vmC9kD20FIA4eMEOyVFU";
     const projectId = "rav6sl4o9c7d";
-
+    
     const navigate = useNavigate(); // Initialize useNavigate
-
+    
     const handleCart = () => {
         navigate('/cart')
     };
@@ -77,8 +93,9 @@ const Checkout = () => {
         }
     };
 
+    
     return (
-        <div className='text-black pt-24 px-8 py-12 rounded-lg shadow-md'>
+        <div className='text-black pt-24  lg:px-8 lg:py-12 rounded-lg shadow-md '>
             {/* Header Section */}
             {/* <div className="flex justify-center space-x-4  border-2 border-red-500 rounded-lg p-3 w-1/4 mx-auto gap-6">
                 <button className={`btn ${activeTab === 'Cart' && ' hover:border-2 rounded-md border-red-600 p-2  text-white'}`} onClick={() => handleCart()}>Cart</button>
@@ -89,16 +106,17 @@ const Checkout = () => {
             {/* </div> */} 
 
             {/* Shipping Address Form */}
+                    <form onSubmit={onSubmitHandler}>
 
-            <div className="mt-10 p-7  w-2/3 mx-auto">
-                <div className=" font-bold bg-blue-500 text-white p-5 mr-7 ">Update Address</div>
+            <div className="lg:mt-10 p-7  lg:w-2/3 w-96 mx-auto">
+                <div className=" font-bold bg-blue-500 text-white p-5 mr-7   ">Update Address</div>
                 <div className='flex gap-2'>
                     <p className='w-1/2'>Full Name*</p>
                     <p>Mobile Number*</p>
                 </div>
                 <div className='flex gap-3'>
                     <input className="input w-1/2  border-2 border-blue-500  text-red-600 p-2 rounded mb-4" type="text" name="name" placeholder="Enter your name" value={address.name} onChange={handleAddressChange} />
-                    <input className="input w-1/2 border-2 border-blue-500  text-red-600 p-2 rounded mb-4" type="text" name="mobile" placeholder="Enter Mobile Number" value={address.mobile} onChange={handleAddressChange} />
+                    <input className="input w-1/2 border-2 border-blue-500  text-red-600 p-2 rounded mb-4" type="number" name="mobile" placeholder="Enter Mobile Number" value={address.mobile} onChange={handleAddressChange} />
                 </div>
                 <p>Landmark*</p>
                 <input className="input border-2 border-blue-500  text-red-600   w-full p-2 rounded mb-4" type="text" name="street" placeholder="Street" value={address.street} onChange={handleAddressChange} />
@@ -116,7 +134,7 @@ const Checkout = () => {
                 </div>
                 <div className='flex gap-3'>
                     <input className="input border-2 border-blue-500  text-red-600  w-1/2 p-2 rounded mb-4" type="text" name="country" placeholder="Country" value={address.country} onChange={handleAddressChange} />
-                    <input className="input  border-2 border-blue-500  text-red-600   w-1/2 p-2 rounded mb-4" type="text" name="zipCode" placeholder="Pin Code" value={address.zipCode} onChange={handleAddressChange} />
+                    <input className="input  border-2 border-blue-500  text-red-600   w-1/2 p-2 rounded mb-4" type="number" name="zipCode" placeholder="Pin Code" value={address.zipCode} onChange={handleAddressChange} />
                 </div>
                 <p className='mb-4'>All fields are mandetory*</p>
                 <button className="btn-primary bg-blue-700 text-white hover:bg-green-700 rounded-lg px-8 py-2 font-bold" onClick={onSubmitHandler}>Submit</button>
@@ -132,6 +150,7 @@ const Checkout = () => {
                     <button className="btn-primary ml-4" onClick={handlePayClick}>Pay Now</button>
                 </div>
             )}
+            </form>
         </div>
     );
 };
