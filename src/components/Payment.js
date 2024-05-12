@@ -92,7 +92,7 @@ const PaymentComponent = ({ productID, onSubmit }) => {
         </div>
         </div>
       
-      <div className="container mx-auto  right w-[70%] absolute lg:top-[56%] top-[37%] lg:right-[12%] right-1">
+      <div className="container mx-auto  right w-[70%] absolute lg:top-[30%] top-[37%] lg:right-[12%] right-1">
       <h1 className="text-md font-bold text-center mb-8 flex justify-start border-b border-solid border-gray-300 text-blue-700 p-2" >Payment Option</h1>
       <div className="flex flex-col space-y-4">
         <div className="flex items-center space-x-4">
